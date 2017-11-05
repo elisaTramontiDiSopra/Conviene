@@ -14,9 +14,16 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-buttons end>
-    <button ion-button icon-only (click)="addProduct()">
+  <ion-buttons>
+    <button ion-button icon-only (click)="goToPage('AddProductPage')">
       <ion-icon name="add"></ion-icon>
     </button>
+    <button ion-button icon-only (click)="goToPage('EditProductPage')">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    <button ion-button icon-only (click)="goToPage('ListPage')">
+      <ion-icon name="list"></ion-icon>
+    </button>
   </ion-buttons>
+
 </ion-content>

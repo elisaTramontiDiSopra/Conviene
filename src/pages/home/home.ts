@@ -23,4 +23,8 @@ export class HomePage {
     this.fireService.addProduct("name","price", "store", "unit", "priceSale", "storeSale");
   }
 
+  goToPage(page){
+    this.navCtrl.push(page);
+    console.log(page);
+  }
 }

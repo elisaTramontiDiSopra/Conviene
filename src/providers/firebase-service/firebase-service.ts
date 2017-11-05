@@ -1,22 +1,27 @@
+import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the FirebaseServiceProvider provider.
+import { Product } from '../../classes/products/products.class';
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FirebaseServiceProvider {
 
-  constructor(public http: Http) {
+  dbReference = this.db.list('products');
+
+  constructor(public http: Http, public db: AngularFireDatabase) {
     console.log('Hello FirebaseServiceProvider Provider');
   }
 
-  addProduct(name, price, store, unit, priceSale, storeSale){
+  getList() {
+    return this.dbReference;
+  }
+
+  addProduct(product: Product){
     console.log("product added");
+    return this.dbReference.push(product);
 
   }
 
