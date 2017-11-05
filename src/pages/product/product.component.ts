@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import { IonicPageModule } from 'ionic-angular';
+
 
 @Component({
     selector: 'product',
