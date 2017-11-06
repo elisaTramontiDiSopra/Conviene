@@ -36,12 +36,8 @@ export class HomePage {
     console.log(page);
   }
 
-  login(user) {
-    this.fireService.loginUser(user);
+  conviene(){
 
-  }
-  register() {
-    this.navCtrl.push('RegisterPage');
   }
 
   makePasswordVisible(){

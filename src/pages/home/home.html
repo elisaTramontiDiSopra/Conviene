@@ -1,32 +1,30 @@
-<ion-content padding>
-  <ion-buttons>
-    <button ion-button icon-only (click)="goToPage('AddProductPage')">
-      <ion-icon name="add"></ion-icon>
-    </button>
-    <button ion-button icon-only (click)="goToPage('EditProductPage')">
-      <ion-icon name="create"></ion-icon>
-    </button>
-    <button ion-button icon-only (click)="goToPage('ListPage')">
-      <ion-icon name="list"></ion-icon>
-    </button>
-  </ion-buttons>
-
+<ion-content>
+  <img src="assets/imgs/introGialla.jpg">
   <ion-fab>
     <ion-row class="rowRoundButtons">
-        <button ion-fab color="secondary">
-          <ion-icon name="add" (tap)="goToPage('AddProductPage')"></ion-icon>
+      <ion-col col-4>
+        <button ion-fab color="secondary" (tap)="goToPage('AddProductPage')">
+          <ion-icon name="add"></ion-icon>
         </button>
-        <button ion-fab color="secondary">
-          <ion-icon name="list" (tap)="goToPage('ListPage')"></ion-icon>
+        <p>Aggiungi<br />prodotto</p>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-fab color="secondary" (tap)="goToPage('ListPage')">
+          <ion-icon name="list"></ion-icon>
         </button>
-
-        <button ion-fab color="secondary">
-          <ion-icon name="settings" (tap)="goToPage('SettingsPage')"></ion-icon>
+        <p>Lista<br />prodotti</p>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-fab color="secondary" (tap)="goToPage('SettingsPage')">
+          <ion-icon name="settings"></ion-icon>
         </button>
-
+        <p>Impostazioni<br /> </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="rowRoundButtons">
+      <div class="button full" ion-button (tap)="conviene()">Conviene?</div>
     </ion-row>
   </ion-fab>
-
 
 
 </ion-content>
