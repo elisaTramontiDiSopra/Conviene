@@ -1,4 +1,4 @@
-<ion-content padding>
+<ion-content padding class="middle">
   <h3>Login</h3>
   <ion-item>
     <ion-label>Email</ion-label>
@@ -15,7 +15,8 @@
     <ion-input [(ngModel)]="user.password" type="password"></ion-input>
   </ion-item>
 
-  <button ion-button (tap)="login(user)">Login</button>
-  <button ion-button (tap)="register()">Register</button>
-
+  <ion-row>
+    <div class="button oneThird" ion-button (tap)="login(user)">Login</div>
+    <div class="secondaryButton oneThird" ion-button (tap)="register()">Register</div>
+  </ion-row>
 </ion-content>

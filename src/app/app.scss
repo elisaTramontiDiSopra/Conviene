@@ -1,21 +1,108 @@
-// http://ionicframework.com/docs/theming/
+.spacer {
+  height: 20vh;
+}
+
+h1 {
+  color: map-get($colors, primary);
+  font-size: 7vw;
+  //font-family:escargot;
+  text-align: center;
+}
+h2 {
+  color: map-get($colors, secondary);
+  font-size: 4vw;
+  text-transform: uppercase;
+  //font-family:escargot;
+  text-align: center;
+}
+
+.title{
+  color: map-get($colors, third);
+  font-size: 7vw;
+  //font-family:escargot;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+.row {
+display: flex;
+  flex-direction: row;
+}
+
+.content-md {
+  background-color: transparent !important;
+}
+
+/****************************************** CENTER PAGE STYLES */
+.middle { //DA APPLICARE @extend A SCROLL-CONTENT NELLA PAGINA
+  display: flex !important;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+/************************************************ COLOR STYLES */
+.primaryColor {
+  color: map-get($colors, primary);
+}
+.thirdColor{
+  color: map-get($colors, third);
+}
 
-.foreground
-  {
-    z-index: 99;
-  }
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+
+
+
+/************************************************ ALERT STYLES */
+.alertText {
+margin: 5vh;
+text-align: center;
+}
+
+
+/********************************************** BUTTONS STYLES */
+
+.button {
+margin-top: 2vh;
+//font-family: escargot;
+font-size: 5vw;
+text-transform: uppercase;
+background-color: map-get($colors, primary);
+color: white;
+height: 8vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.oneThird {
+  width: 35vw;
+  margin: 4vw;
+}
+
+.secondaryButton {
+@extend .button;
+background-color: map-get($colors, secondary) !important;
+}
+
+.thirdButton {
+@extend .button;
+background-color: map-get($colors, third) !important;
+}
+
+.whiteButton {
+@extend .button;
+background-color: #fff !important;
+color: map-get($colors, primary) !important;
+}
