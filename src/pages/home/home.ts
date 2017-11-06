@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database"
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { User } from '../../classes/user/user.class';
 
 @IonicPage()
 @Component({
@@ -13,18 +15,37 @@ export class HomePage {
 
   products: FirebaseListObservable<any>;
   product = [];
+  //user = {} as User;
+  seePassword = true;
 
 
-  constructor(public navCtrl: NavController, af: AngularFireDatabase, public fireService: FirebaseServiceProvider) {
+  constructor(public navCtrl: NavController, af: AngularFireDatabase, public fireService: FirebaseServiceProvider, public afAuth: AngularFireAuth) {
     this.products = af.list('/products');
   }
 
-  addProduct(){
-    this.fireService.addProduct("name","price", "store", "unit", "priceSale", "storeSale");
+  ionViewWillLoad(){
+    this.afAuth.authState.subscribe(data => console.log(data));
+  }
+
+  addProduct(product){
+    this.fireService.addProduct(product);
   }
 
   goToPage(page){
     this.navCtrl.push(page);
     console.log(page);
+  }
+
+  login(user) {
+    this.fireService.loginUser(user);
+
+  }
+  register() {
+    this.navCtrl.push('RegisterPage');
+  }
+
+  makePasswordVisible(){
+    console.log("OCCHIO");
+    this.seePassword = !this.seePassword;
   }
 }

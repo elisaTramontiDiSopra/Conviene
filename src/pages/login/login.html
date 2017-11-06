@@ -1,0 +1,21 @@
+<ion-content padding>
+  <h3>Login</h3>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="user.email" type="email"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="this.seePassword">
+    <ion-label>Password</ion-label>
+    <ion-input [(ngModel)]="user.password" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!this.seePassword">
+    <ion-label floating>Password</ion-label>
+    <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+  </ion-item>
+
+  <button ion-button (tap)="login(user)">Login</button>
+  <button ion-button (tap)="register()">Register</button>
+
+</ion-content>

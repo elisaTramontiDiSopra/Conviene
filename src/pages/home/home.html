@@ -1,29 +1,32 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button>
-        <ion-icon name="add"> </ion-icon>
-      </button>
-    </ion-buttons>
-
-
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
   <ion-buttons>
     <button ion-button icon-only (click)="goToPage('AddProductPage')">
       <ion-icon name="add"></ion-icon>
     </button>
     <button ion-button icon-only (click)="goToPage('EditProductPage')">
-        <ion-icon name="create"></ion-icon>
-      </button>
+      <ion-icon name="create"></ion-icon>
+    </button>
     <button ion-button icon-only (click)="goToPage('ListPage')">
       <ion-icon name="list"></ion-icon>
     </button>
   </ion-buttons>
+
+  <ion-fab>
+    <ion-row class="rowRoundButtons">
+        <button ion-fab color="secondary">
+          <ion-icon name="add" (tap)="goToPage('AddProductPage')"></ion-icon>
+        </button>
+        <button ion-fab color="secondary">
+          <ion-icon name="list" (tap)="goToPage('ListPage')"></ion-icon>
+        </button>
+
+        <button ion-fab color="secondary">
+          <ion-icon name="settings" (tap)="goToPage('SettingsPage')"></ion-icon>
+        </button>
+
+    </ion-row>
+  </ion-fab>
+
+
 
 </ion-content>

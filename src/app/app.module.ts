@@ -8,8 +8,9 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 
-import { AngularFireModule } from "angularfire2"
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database"
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 
@@ -22,6 +23,7 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     HttpModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

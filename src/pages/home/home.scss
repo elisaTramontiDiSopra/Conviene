@@ -1,3 +1,14 @@
 page-home {
+  ion-fab{
+    width: 100vw;
+    margin-top: 45vh;
+  }
+  .rowRoundButtons{
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 8vw;
+    }
+  }
 
 }
