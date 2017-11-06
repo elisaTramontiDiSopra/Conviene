@@ -1,5 +1,5 @@
 .spacer {
-  height: 20vh;
+  height: 5vh;
 }
 
 h1 {
@@ -17,11 +17,11 @@ h2 {
 }
 
 .title{
-  color: map-get($colors, third);
+  color: map-get($colors, secondary);
   font-size: 7vw;
-  //font-family:escargot;
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 5vh;
 }
 
 .column{
@@ -29,8 +29,9 @@ h2 {
   flex-direction: column;
 }
 .row {
-display: flex;
+  display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .content-md {
@@ -88,11 +89,12 @@ margin-top: 2vh;
 font-size: 5vw;
 text-transform: uppercase;
 background-color: map-get($colors, primary);
-color: white;
+color: map-get($colors, secondary);
 height: 8vh;
 display: flex;
 justify-content: center;
 align-items: center;
+color: white;
 }
 
 .secondaryButton {
@@ -109,4 +111,12 @@ background-color: map-get($colors, third) !important;
 @extend .button;
 background-color: #fff !important;
 color: map-get($colors, primary) !important;
+}
+
+
+
+/********************************************** LABEL STYLES */
+
+ion-label {
+  color: map-get($colors, secondary);
 }

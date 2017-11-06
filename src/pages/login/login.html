@@ -1,12 +1,12 @@
 <ion-content padding>
   <h3>Login</h3>
   <ion-item>
-    <ion-label>Email</ion-label>
+    <ion-label floating>Email</ion-label>
     <ion-input [(ngModel)]="user.email" type="email"></ion-input>
   </ion-item>
 
   <ion-item *ngIf="this.seePassword">
-    <ion-label>Password</ion-label>
+    <ion-label floating>Password</ion-label>
     <ion-input [(ngModel)]="user.password" type="text"></ion-input>
   </ion-item>
 

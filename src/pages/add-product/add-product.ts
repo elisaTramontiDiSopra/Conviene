@@ -12,14 +12,9 @@ import { Product } from '../../classes/products/products.class'
 })
 export class AddProductPage {
 
-  product: Product = {
-    name: "",
-    price: 0,
-    store: "",
-    priceSale: 0,
-    storeSale: "",
-    unity: ""
-  }
+  product = {} as Product;
+  savedProduct = false;
+  completeForm = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider) {
   }
@@ -29,7 +24,19 @@ export class AddProductPage {
   }
 
   addProduct(product: Product){
+    if (product.price && product.name) {
     this.fireService.addProduct(product);
+    this.savedProduct = true;
+    } else {
+      this.completeForm = true;
+    }
   }
 
+  dismissAlert(){
+    this.savedProduct = false;
+  }
+
+  dismissCompleteFormAlert() {
+    this.completeForm = false;
+  }
 }

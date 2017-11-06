@@ -1,33 +1,49 @@
-<ion-header>
+<ion-content>
+  <img src="assets/imgs/introBlu.jpg">
+  <h3 class="title">Aggiungi<br />un prodotto</h3>
+  <ion-item>
+    <ion-label>Nome *</ion-label>
+    <ion-input [(ngModel)]="product.name" required></ion-input>
+  </ion-item>
 
-  <ion-navbar>
-    <ion-title>addProduct</ion-title>
-  </ion-navbar>
+  <ion-item>
+    <ion-label>Negozio</ion-label>
+    <ion-input [(ngModel)]="product.store"></ion-input>
+  </ion-item>
 
-</ion-header>
+  <ion-item>
+    <ion-label>Prezzo *</ion-label>
+    <ion-input [(ngModel)]="product.price" type="number" required></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label>Negozio offerta</ion-label>
+    <ion-input [(ngModel)]="product.storeSale"></ion-input>
+  </ion-item>
 
-<ion-content padding>
-    <ion-item>
-        <ion-label>Nome</ion-label>
-        <ion-input [(ngModel)]="product.name" placeholder="Il tuo prodotto"></ion-input>
-      </ion-item>
+  <ion-item>
+    <ion-label>Prezzo offerta</ion-label>
+    <ion-input [(ngModel)]="product.priceSale" type="number"></ion-input>
+  </ion-item>
 
-      <ion-item>
-        <ion-label>Negozio</ion-label>
-        <ion-input [(ngModel)]="product.store" placeholder="Il tuo prodotto"></ion-input>
-      </ion-item>
+  <div class="spacer"></div>
 
-      <ion-item>
-        <ion-label>Prezzo</ion-label>
-        <ion-input [(ngModel)]="product.price" type="number" placeholder="1"></ion-input>
-      </ion-item>
+  <ion-row class="rowRoundButtons">
+    <div class="button full" ion-button (tap)="addProduct(product)">Aggiungi prodotto</div>
+  </ion-row>
 
-      <ion-item>
-        <ion-label>Prezzo offerta</ion-label>
-        <ion-input [(ngModel)]="product.priceSale" type="number" placeholder="10"></ion-input>
-      </ion-item>
+  <div class="spacer"></div>
 
-      <button ion-button block clear (click)="addProduct(product)">Aggiungi prodotto</button>
+  <div *ngIf="savedProduct" class="savedProductAlert" >
+      <p>Il prodotto è stato correttamente salvato</p>
+      <div class="spacer"></div>
+      <div class="button" (tap)="dismissAlert()">chiudi</div>
+  </div>
+  <div *ngIf="completeForm" class="completeFormAlert" >
+      <p>Completa il form inserendo nome e prezzo del prosotto</p>
+      <div class="spacer"></div>
+      <div class="secondaryButton" (tap)="dismissCompleteFormAlert()">chiudi</div>
+  </div>
+
 
 </ion-content>
