@@ -89,7 +89,7 @@ margin-top: 2vh;
 font-size: 5vw;
 text-transform: uppercase;
 background-color: map-get($colors, primary);
-color: map-get($colors, secondary);
+color: map-get($colors, secondary) !important;
 height: 8vh;
 display: flex;
 justify-content: center;

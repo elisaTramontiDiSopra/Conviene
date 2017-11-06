@@ -43,10 +43,13 @@ export class FirebaseServiceProvider {
     return this.dbReference;
   }
 
-  addProduct(product: Product){
-    console.log("product added");
-    return this.dbReference.push(product);
+  search(name) {
 
+  }
+
+  addProduct(product: Product){
+    //console.log("product added");
+    return this.dbReference.push(product);
   }
 
 }
