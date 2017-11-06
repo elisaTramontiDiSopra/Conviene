@@ -3,7 +3,7 @@
   <h3 class="title">Lista
     <br />dei prodotti</h3>
   <ion-list>
-    <ion-item *ngFor="let product of productList | async" (tap)="productSelected('product.name')">
+    <ion-item *ngFor="let product of productList | async" navPush="ProductPage" [navParams]="{product: product}">
       {{product.name}}
     </ion-item>
   </ion-list>
