@@ -18,8 +18,6 @@ export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider, ) {
     this.productList = this.fireService.getList();
-
-    console.log(this.productList);
   }
 
   productSelected(name){

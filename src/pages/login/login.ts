@@ -17,6 +17,9 @@ export class LoginPage {
   user = {} as User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider, public afAuth: AngularFireAuth) {
+    if (this.user.email) {
+      this.navCtrl.setRoot('Home');
+    }
   }
 
   ionViewDidLoad() {

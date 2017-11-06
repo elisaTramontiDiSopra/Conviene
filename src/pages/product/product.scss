@@ -1,1 +1,66 @@
-// component css goes here
+page-product {
+  ion-col {
+    margin: 0;
+    padding: 0;
+  }
+  col-6{
+    padding: 0;
+  }
+  .columnProduct{
+    width: 50vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    p {
+      padding: 1vw 3vw;
+    }
+  }
+  .left {
+    text-align: left;
+    @extend .columnProduct
+  }
+  .right {
+    text-align: right;
+    align-items: flex-end;
+    @extend .columnProduct
+  }
+  .secondary {
+    color: map-get($colors, secondary);
+  }
+
+  .primary {
+    color: map-get($colors, primary);
+  }
+
+  .subtitle{
+    text-transform: uppercase;
+    width: 27vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .subtitleSecondary {
+    background-color: map-get($colors, secondary);
+    color: white;
+    @extend .subtitle
+  }
+
+  .subtitlePrimary {
+    background-color: map-get($colors, primary);
+    color: map-get($colors, secondary);
+    @extend .subtitle
+  }
+
+  .price {
+    font-size: 7vh;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+  }
+
+  .unity {
+    text-transform: uppercase;
+  }
+}

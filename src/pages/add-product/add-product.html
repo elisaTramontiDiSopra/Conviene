@@ -1,6 +1,7 @@
 <ion-content>
   <img src="assets/imgs/introBlu.jpg">
-  <h3 class="title">Aggiungi<br />un prodotto</h3>
+  <h3 class="title">Aggiungi
+    <br />un prodotto</h3>
   <ion-item>
     <ion-label>Nome *</ion-label>
     <ion-input [(ngModel)]="product.name" required></ion-input>
@@ -10,6 +11,16 @@
     <ion-label>Negozio</ion-label>
     <ion-input [(ngModel)]="product.store"></ion-input>
   </ion-item>
+
+  <ion-item radio-group [(ngModel)]="product.unity">
+    <!-- <ion-label>Negozio</ion-label> -->
+    <form>
+      <input type="radio" value="kg">Al kg
+      <input type="radio" value="lt">Al litro
+      <input type="radio" value="package">Alla confezione
+    </form>
+  </ion-item>
+
 
   <ion-item>
     <ion-label>Prezzo *</ion-label>
@@ -34,15 +45,15 @@
 
   <div class="spacer"></div>
 
-  <div *ngIf="savedProduct" class="savedProductAlert" >
-      <p>Il prodotto è stato correttamente salvato</p>
-      <div class="spacer"></div>
-      <div class="button" (tap)="dismissAlert()">chiudi</div>
+  <div *ngIf="savedProduct" class="savedProductAlert">
+    <p>Il prodotto è stato correttamente salvato</p>
+    <div class="spacer"></div>
+    <div class="button" (tap)="dismissAlert()">chiudi</div>
   </div>
-  <div *ngIf="completeForm" class="completeFormAlert" >
-      <p>Completa il form inserendo nome e prezzo del prosotto</p>
-      <div class="spacer"></div>
-      <div class="secondaryButton" (tap)="dismissCompleteFormAlert()">chiudi</div>
+  <div *ngIf="completeForm" class="completeFormAlert">
+    <p>Completa il form inserendo nome e prezzo del prosotto</p>
+    <div class="spacer"></div>
+    <div class="secondaryButton" (tap)="dismissCompleteFormAlert()">chiudi</div>
   </div>
 
 
