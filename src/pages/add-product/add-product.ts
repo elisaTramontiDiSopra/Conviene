@@ -34,6 +34,7 @@ export class AddProductPage {
 
   dismissAlert(){
     this.savedProduct = false;
+    this.navCtrl.push('HomePage');
   }
 
   dismissCompleteFormAlert() {
