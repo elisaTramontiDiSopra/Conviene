@@ -1,4 +1,42 @@
 page-add-product {
+
+
+  input{
+    width: 90vw;
+    margin: 5vw;
+    border: none;
+    border-bottom: solid 1px map-get($colors, secondary);
+  }
+  .inputTitle{
+    width: 100vw;
+    padding: 5vw;
+    background-color: map-get($colors, primary);
+    color: map-get($colors, secondary);
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 5vh;
+    display:flex;
+    align-items: center;
+    margin: 0,
+
+  }
+/*
+  .text-input::-moz-input-placeholder {
+    color: map-get($colors, secondary);
+    font-weight: bold;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: map-get($colors, secondary);;
+  }
+*/
+  .text-input::-webkit-input-placeholder {
+    text-indent: 0;
+    color: map-get($colors, secondary);
+    font-weight: bold;
+  }
+
+
   //background-color: map-get($colors, primary);
   .item {
     background-color: transparent;

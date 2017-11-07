@@ -1,40 +1,50 @@
 <ion-content>
-  <img src="assets/imgs/introBlu.jpg">
+  <img src="assets/imgs/miniBlu.jpg">
   <h3 class="title">Aggiungi
     <br />un prodotto</h3>
+
   <ion-item>
-    <ion-label>Nome *</ion-label>
-    <ion-input [(ngModel)]="product.name" required></ion-input>
+    <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Negozio</ion-label>
-    <ion-input [(ngModel)]="product.store"></ion-input>
-  </ion-item>
-
-  <ion-item radio-group [(ngModel)]="product.unity">
-    <!-- <ion-label>Negozio</ion-label> -->
-    <form>
-      <input type="radio" value="kg">Al kg
-      <input type="radio" value="lt">Al litro
-      <input type="radio" value="package">Alla confezione
-    </form>
-  </ion-item>
-
-
-  <ion-item>
-    <ion-label>Prezzo *</ion-label>
-    <ion-input [(ngModel)]="product.price" type="number" required></ion-input>
+    <ion-input [(ngModel)]="product.store" placeholder="Negozio"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Negozio offerta</ion-label>
-    <ion-input [(ngModel)]="product.storeSale"></ion-input>
+    <ion-input [(ngModel)]="product.price" type="number" placeholder="Prezzo"></ion-input>
+  </ion-item>
+
+  <ion-row>
+    <ion-col col-4>
+        <ion-item>
+            <ion-label>Unità</ion-label>
+          </ion-item>
+    </ion-col>
+    <ion-col col-8>
+        <ion-list radio-group [(ngModel)]="product.unity">
+            <ion-item>
+              <ion-label>Al Kg</ion-label>
+              <ion-radio value="kg" checked></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Al litro</ion-label>
+              <ion-radio value="lt"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Per confezione</ion-label>
+              <ion-radio value="package"></ion-radio>
+            </ion-item>
+          </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-item>
+    <ion-input [(ngModel)]="product.storeSale" placeholder="Negozio offerta"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Prezzo offerta</ion-label>
-    <ion-input [(ngModel)]="product.priceSale" type="number"></ion-input>
+    <ion-input [(ngModel)]="product.priceSale" type="number" placeholder="Prezzo offerta"></ion-input>
   </ion-item>
 
   <div class="spacer"></div>
