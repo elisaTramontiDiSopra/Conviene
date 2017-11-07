@@ -20,8 +20,4 @@ export class ListPage {
     this.productList = this.fireService.getList();
   }
 
-  productSelected(name){
-    this.fireService.search(name);
-  }
-
 }

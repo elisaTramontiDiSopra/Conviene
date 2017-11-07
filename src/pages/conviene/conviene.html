@@ -8,10 +8,10 @@
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
+    <ion-input [(ngModel)]="product.price" placeholder="Prezzo"></ion-input>
   </ion-item>
 
-  <div class="button full" ion-button (tap)="conviene();">Conviene?</div>
+  <div class="button full" ion-button (tap)="conviene(product.name, product.price);">Conviene?</div>
 
   <div *ngIf="convieneBool == true" class="conviene">
     <div class="circle">
