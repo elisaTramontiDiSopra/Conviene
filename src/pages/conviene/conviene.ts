@@ -14,6 +14,8 @@ export class ConvienePage {
   product = {} as Product;
   convieneBool: boolean;
   savedPrice;
+  productQuery;
+  completeForm = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider, ) {
   }
@@ -22,17 +24,38 @@ export class ConvienePage {
     console.log('ionViewDidLoad ConvienePage');
   }
 
-  conviene(name, price){
-    this.savedPrice = this.fireService.searchPrice(name)
-    //this.convieneBool = false;
-    console.log('name '+name);
-    console.log('price '+price);
-    console.log('savedPrice '+ this.savedPrice);
+
+  conviene(name, price: number){
+    this.fireService.getProduct(name).subscribe((result) => {
+      result.map(res => this.savedPrice = +res['price']);
+      if (this.savedPrice > price) {
+        console.log('conviene');
+        this.convieneBool = true;
+      }
+      if (this.savedPrice < price) {
+        console.log('NON conviene');
+        this.convieneBool = false;
+      }
+    });
+  }
+
+  checkPrice(savedPrice, controlPrice){
+    if (!savedPrice) {
+      console.log('il prodotto non esiste');
+    } else if (savedPrice < controlPrice) {
+      console.log('non conviene');
+    } else {
+      console.log('conviene!!!!');
+    }
+  }
+
+  updateSalePrice(){
 
   }
 
-  dismissAlert(){
 
+  dismissAlert(){
+    this.completeForm = false;
   }
 
   goToPage(page){

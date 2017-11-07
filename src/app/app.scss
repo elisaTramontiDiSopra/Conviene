@@ -105,6 +105,7 @@ color: white;
 .secondaryButton {
 @extend .button;
 background-color: map-get($colors, secondary) !important;
+color: white;
 }
 
 .thirdButton {

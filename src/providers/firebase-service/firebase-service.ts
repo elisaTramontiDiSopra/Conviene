@@ -50,19 +50,33 @@ export class FirebaseServiceProvider {
     return this.dbReference;
   }
 
-  searchPrice(name) {
-    console.log("called searchPrice function");
-    this.db.list("products", {
-      query: {
-        orderByChild: 'name',
-        equalTo: "Nutella"
-      }
-    }).subscribe(result => {
-      result.map(res => {
-        console.log(res)
-      })
-    });
+  value;
 
+  getProduct(name) {
+    return this.db.list("products", {
+      query: {
+        orderByChild: "name",
+        equalTo: name
+      }
+    });
+  }
+
+  searchInDb(name, property) {
+    console.log("called searchPrice function");
+    this.db
+      .list("products", {
+        query: {
+          orderByChild: "name",
+          equalTo: name
+        }
+      })
+      .subscribe(result => {
+        result.map(res => {
+          //console.log(res[property])
+          this.value = res;
+        });
+      });
+    return this.value;
   }
 
   addProduct(product: Product) {

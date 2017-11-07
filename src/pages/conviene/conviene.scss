@@ -1,5 +1,8 @@
 page-conviene {
   //background-color: map-get($colors, primary);
+  ion-input {
+    width: 90vw;
+  }
 
   .nonConviene {
     background-color: rgba(35, 43, 52, 0.95);
@@ -20,7 +23,7 @@ page-conviene {
   }
 
   .conviene {
-    background-color: rgba(255, 202, 80, 0.85);
+    background-color: rgba(255, 202, 80, 0.95);
     opacity: 80%;
     width: 100vw;
     height: 100vh;

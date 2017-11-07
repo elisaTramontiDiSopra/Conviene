@@ -1,14 +1,13 @@
 <ion-content>
   <img src="assets/imgs/introBlu.jpg">
-  <h3 class="title">Cerca
-    <br />un prodotto</h3>
+  <h3 class="title">Mi conviene?</h3>
 
   <ion-item>
     <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="product.price" placeholder="Prezzo"></ion-input>
+    <ion-input [(ngModel)]="product.price" type="number" placeholder="Prezzo"></ion-input>
   </ion-item>
 
   <div class="button full" ion-button (tap)="conviene(product.name, product.price);">Conviene?</div>
@@ -19,7 +18,7 @@
     </div>
     <p>E' un'ottima offerta</p>
     <div class="spacer"></div>
-    <div class="whiteButton" (tap)="dismissAlert(product)">Scheda</div>
+    <div class="button" (tap)="updateSalePrice()">Aggiorna il prezzo offerta</div>
     <div class="secondaryButton" (tap)="goToPage('HomePage')">Home</div>
   </div>
   <div *ngIf="convieneBool == false" class="nonConviene">
@@ -28,8 +27,13 @@
     </div>
     <p>Il prezzo è più alto del normale</p>
     <div class="spacer"></div>
-    <div class="whiteButton" (tap)="dismissAlert(product)">Scheda</div>
     <div class="button" (tap)="goToPage('HomePage')">Home</div>
   </div>
+
+  <div *ngIf="completeForm" class="completeFormAlert">
+      <p>Completa il form inserendo nome e prezzo del prodotto</p>
+      <div class="spacer"></div>
+      <div class="secondaryButton" (tap)="dismissAlert()">chiudi</div>
+    </div>
 
 </ion-content>
