@@ -1,24 +1,36 @@
 <ion-content>
-    <img src="assets/imgs/introBlu.jpg">
-    <h3 class="title">{{product?.name}}</h3>
-<ion-row>
+  <img src="assets/imgs/introBlu.jpg">
+  <h3 class="title">{{product?.name}}</h3>
+  <ion-row>
     <ion-col col-6 class="left">
-      <div class="subtitleSecondary"><p>Normale</p></div>
-      <p class="price secondary">{{product?.price | number:'1.2-2'}}€</p>
-      <p class="unity secondary"></p>
+      <div class="subtitleSecondary">
+        <p>Normale</p>
+      </div>
+      <p class="price secondary">{{product?.price | number:'1.2-2'}}</p>
+      <p class="unity secondary">euro {{product?.unity}}</p>
 
-      <div class="subtitleSecondary"><p>Negozio</p></div>
+      <div class="subtitleSecondary">
+        <p>Negozio</p>
+      </div>
       <p class="unity secondary">{{product?.store}}</p>
     </ion-col>
 
     <ion-col col-6 class="right">
-        <div class="subtitlePrimary"><p>Offerta</p></div>
-        <p class="price primary">{{product?.price | number:'1.2-2'}}€</p>
-        <p class="unity primary"></p>
+      <div class="subtitlePrimary">
+        <p>Offerta</p>
+      </div>
+      <p class="price primary">{{product?.price | number:'1.2-2'}}</p>
+      <p class="unity primary">euro {{product?.unity}}</p>
 
-        <div class="subtitlePrimary"><p>Negozio</p></div>
-        <p class="unity primary">{{product?.store}}</p>
-      </ion-col>
-    </ion-row>
+      <div class="subtitlePrimary">
+        <p>Negozio</p>
+      </div>
+      <p class="unity primary">{{product?.store}}</p>
+    </ion-col>
+  </ion-row>
 
-  </ion-content>
+  <div class="productName">
+    <p>{{product?.name}}</p>
+  </div>
+
+</ion-content>

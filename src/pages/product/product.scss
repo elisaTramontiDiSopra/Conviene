@@ -41,7 +41,8 @@ page-product {
   .subtitle{
     text-transform: uppercase;
     width: 27vw;
-    height: 5vh;
+
+    height: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,13 +60,30 @@ page-product {
   }
 
   .price {
-    font-size: 7vh;
+    font-size: 9vh;
     font-weight: bold;
-    padding: 0;
+    padding-top: 2vh !important;
     margin: 0;
+    line-height: 0.6;
   }
 
   .unity {
     text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 3vh !important;
+  }
+
+  .productName{
+    background-color: map-get($colors, secondary);
+    color: white;
+    height: 8vh;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    p{
+      font-size: 5vh;
+      text-transform: uppercase;
+    }
   }
 }
