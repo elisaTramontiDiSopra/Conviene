@@ -1,103 +1,92 @@
 <ion-content>
 
   <div *ngIf="pictureTaken == false" class="productImageContainer">
-
-        <img src="assets/imgs/squareBlu.jpg" class="productImage">
-
+    <img src="assets/imgs/squareBlu.jpg" class="productImage">
     <button ion-fab color="primary" (tap)="takePicture()">
       <ion-icon name="camera" class="cameraIcon"></ion-icon>
     </button>
-
   </div>
 
-  <div *ngIf="pictureTaken == true">
-      <img [src]="image" class="productImage" />
-      <button ion-fab color="light" (tap)="takePicture()">
-        <ion-icon name="camera" class="cameraIcon"></ion-icon>
-      </button>
-      <button ion-fab color="primary" (tap)="savePicture()">
-          <ion-icon name="checkmark" class="cameraIcon"></ion-icon>
-        </button>
-    </div>
+  <div *ngIf="pictureTaken == true" class="productImageContainer">
+    <img [src]="product.img" class="productImage" />
+    <button ion-fab color="light" (tap)="takePicture()">
+      <ion-icon name="camera" class="cameraIcon"></ion-icon>
+    </button>
+    <button ion-fab color="primary" (tap)="savePicture()">
+      <ion-icon name="checkmark" class="cameraIcon"></ion-icon>
+    </button>
+  </div>
 
-   <img src="assets/imgs/curvaGialla.png" class="curve">
+  <img src="assets/imgs/curvaGialla.png" class="curve">
   <div class="white" color="light">
 
 
 
-  <h3 class="title">Aggiungi
-    <br />un prodotto</h3>
+    <h3 class="title">Aggiungi
+      <br />un prodotto</h3>
 
 
-  <!--
-  <img [src]="image" class="productImage" />
-  <button ion-fab color="secondary" (tap)="takePicture()">
-    <ion-icon name="camera"></ion-icon>
-  </button> -->
+    <ion-item>
+      <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-input [(ngModel)]="product.store" placeholder="Negozio"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-input [(ngModel)]="product.price" type="number" placeholder="Prezzo"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input [(ngModel)]="product.store" placeholder="Negozio"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input [(ngModel)]="product.price" type="number" placeholder="Prezzo"></ion-input>
-  </ion-item>
-
-  <ion-row>
-    <ion-col col-4>
-      <ion-item>
-        <ion-label>Unità</ion-label>
-      </ion-item>
-    </ion-col>
-    <ion-col col-8>
-      <ion-list radio-group [(ngModel)]="product.unity">
+    <ion-row>
+      <ion-col col-4>
         <ion-item>
-          <ion-label>Al Kg</ion-label>
-          <ion-radio value="Al kg" checked></ion-radio>
+          <ion-label>Unità</ion-label>
         </ion-item>
-        <ion-item>
-          <ion-label>Al litro</ion-label>
-          <ion-radio value="Al litro"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Per confezione</ion-label>
-          <ion-radio value="Per confezione"></ion-radio>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+      <ion-col col-8>
+        <ion-list radio-group [(ngModel)]="product.unity">
+          <ion-item>
+            <ion-label>Al Kg</ion-label>
+            <ion-radio value="Al kg" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Al litro</ion-label>
+            <ion-radio value="Al litro"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Per confezione</ion-label>
+            <ion-radio value="Per confezione"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
 
-  <ion-item>
-    <ion-input [(ngModel)]="product.storeSale" placeholder="Negozio offerta"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="product.storeSale" placeholder="Negozio offerta"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-input [(ngModel)]="product.priceSale" type="number" placeholder="Prezzo offerta"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="product.priceSale" type="number" placeholder="Prezzo offerta"></ion-input>
+    </ion-item>
 
-  <div class="spacer"></div>
-
-  <ion-row class="rowRoundButtons">
-    <div class="button full" ion-button (tap)="addProduct(product)">Aggiungi prodotto</div>
-  </ion-row>
-
-  <div class="spacer"></div>
-
-  <div *ngIf="savedProduct" class="savedProductAlert">
-    <p>Il prodotto è stato correttamente salvato</p>
     <div class="spacer"></div>
-    <div class="button" (tap)="dismissAlert()">chiudi</div>
-  </div>
-  <div *ngIf="completeForm" class="completeFormAlert">
-    <p>Completa il form inserendo nome e prezzo del prosotto</p>
+
+    <ion-row class="rowRoundButtons">
+      <div class="button full" ion-button (tap)="addProduct(product)">Aggiungi prodotto</div>
+    </ion-row>
+
     <div class="spacer"></div>
-    <div class="secondaryButton" (tap)="dismissCompleteFormAlert()">chiudi</div>
+
+    <div *ngIf="savedProduct" class="savedProductAlert">
+      <p>Il prodotto è stato correttamente salvato</p>
+      <div class="spacer"></div>
+      <div class="button" (tap)="dismissAlert()">chiudi</div>
+    </div>
+    <div *ngIf="completeForm" class="completeFormAlert">
+      <p>Completa il form inserendo nome e prezzo del prosotto</p>
+      <div class="spacer"></div>
+      <div class="secondaryButton" (tap)="dismissCompleteFormAlert()">chiudi</div>
+    </div>
   </div>
-</div>
 </ion-content>

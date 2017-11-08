@@ -18,11 +18,9 @@ export class ConvienePage {
   completeForm = false;
   noResult = false;
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public fireService: FirebaseServiceProvider
-  ) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider) {
+
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad ConvienePage");
