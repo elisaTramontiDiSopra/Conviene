@@ -14,7 +14,11 @@ import { User } from "../../classes/user/user.class";
 })
 export class LoginPage {
 
-  user = {} as User;
+  user = {
+    email: "",
+    password: ""
+  } as User;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public fireService: FirebaseServiceProvider, public afAuth: AngularFireAuth,
@@ -23,6 +27,15 @@ export class LoginPage {
       if(auth) {
         this.navCtrl.setRoot('HomePage')}
     });
+  }
+
+  focusFunction(){
+    if (this.user.email.length > 0) {
+      this.user.email = this.user.email.toLowerCase();
+    }
+    if (this.user.password.length > 0) {
+      this.user.password = this.user.password.toLowerCase();
+    }
   }
 
   login(user) {

@@ -3,12 +3,12 @@
   <div class="spacer"></div>
   <ion-item>
     <ion-label floating>Email</ion-label>
-    <ion-input [(ngModel)]="user.email" type="email"></ion-input>
+    <ion-input (keyup)="focusFunction()" [(ngModel)]="user.email" type="email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input [(ngModel)]="user.password" type="text"></ion-input>
+    <ion-input (keyup)="focusFunction()" [(ngModel)]="user.password" type="text"></ion-input>
   </ion-item>
 
   <button full ion-button class="whiteButton" (tap)="login(user)" [disabled]="!user.email || !user.password">Login</button>

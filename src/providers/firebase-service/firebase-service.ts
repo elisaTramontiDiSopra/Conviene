@@ -12,13 +12,17 @@ import { User } from "../../classes/user/user.class";
 export class FirebaseServiceProvider {
 
   product = {} as Product;
-  dbReference = this.db.list("products");
+  uid;
+  dbReference;
+  //dbReference = this.db.list(this.uid);
+  //dbReference = this.db.list("products");
   authState: any = null;
 
   constructor(public http: Http, public db: AngularFireDatabase, public afAuth: AngularFireAuth  ) {
     console.log("Hello FirebaseServiceProvider Provider");
     this.afAuth.authState.subscribe((auth) => {
-      this.authState = auth
+      this.authState = auth;
+      this.dbReference = this.db.list(auth.uid);
     });
   }
 

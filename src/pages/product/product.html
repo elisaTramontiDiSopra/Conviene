@@ -1,35 +1,46 @@
 <ion-content>
-  <img src="assets/imgs/introBlu.jpg">
-  <h3 class="title">{{product?.name}}</h3>
-  <ion-row>
-    <ion-col col-6 class="left">
-      <div class="subtitleSecondary">
-        <p>Normale</p>
-      </div>
-      <p class="price secondary">{{product?.price | number:'1.2-2'}}</p>
-      <p class="unity secondary">euro {{product?.unity}}</p>
 
-      <div class="subtitleSecondary">
-        <p>Negozio</p>
-      </div>
-      <p class="unity secondary">{{product?.store}}</p>
-    </ion-col>
+  <img *ngIf="product.img !== ''" [src]="product.img" class="productImage" />
+  <img *ngIf="product.img == '' || product == undefined" src="assets/imgs/introBlu.jpg" class="productImage">
 
-    <ion-col col-6 class="right">
-      <div class="subtitlePrimary">
-        <p>Offerta</p>
-      </div>
-      <p class="price primary">{{product?.price | number:'1.2-2'}}</p>
-      <p class="unity primary">euro {{product?.unity}}</p>
+  <img src="assets/imgs/curvaGialla.png" class="curve">
 
-      <div class="subtitlePrimary">
-        <p>Negozio</p>
-      </div>
-      <p class="unity primary">{{product?.store}}</p>
-    </ion-col>
-  </ion-row>
+  <div class="white" color="light">
+    <h3 class="title">{{product?.name}}</h3>
+    <ion-row>
 
-  <ion-footer>
+      <ion-col col-6 class="left">
+        <div class="subtitleSecondary">
+          <p>Normale</p>
+        </div>
+        <p class="price secondary">{{product?.price | number:'1.2-2'}}</p>
+        <p class="unity secondary">euro {{product?.unity}}</p>
+
+        <div class="subtitleSecondary">
+          <p>Negozio</p>
+        </div>
+        <p class="unity secondary">{{product?.store}}</p>
+      </ion-col>
+
+      <ion-col *ngIf="product?.priceSale" col-6 class="right">
+        <div class="subtitlePrimary">
+          <p>Offerta</p>
+        </div>
+        <p class="price primary">{{product?.priceSale | number:'1.2-2'}}</p>
+        <p class="unity primary">euro {{product?.unity}}</p>
+
+        <div class="subtitlePrimary">
+          <p>Negozio</p>
+        </div>
+        <p class="unity primary">{{product?.storeSale}}</p>
+      </ion-col>
+
+      <!-- if there is no priceSale show an empty column -->
+      <ion-col *ngIf="!product?.priceSale" col-6 class="right">
+      </ion-col>
+    </ion-row>
+
+    <ion-footer>
 
       <button ion-fab color="secondary" (tap)="goToPage('HomePage')">
         <ion-icon name="home"></ion-icon>
@@ -43,6 +54,6 @@
         <ion-icon name="arrow-back"></ion-icon>
       </button>
 
-  </ion-footer>
-
+    </ion-footer>
+  </div>
 </ion-content>

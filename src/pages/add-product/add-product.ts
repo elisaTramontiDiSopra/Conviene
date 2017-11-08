@@ -4,7 +4,7 @@ import { FirebaseImageStorageProvider } from '../../providers/firebase-image-sto
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { FirebaseApp } from "angularfire2";
+//import { FirebaseApp } from "angularfire2";
 
 import { Product } from "../../classes/products/products.class";
 
@@ -30,14 +30,13 @@ export class AddProductPage {
     targetWidth: 600,
     targetHeight: 600,
     destinationType: this.camera.DestinationType.DATA_URL,
-    //destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE,
     correctOrientation: true
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public fireService: FirebaseServiceProvider, private firebase: FirebaseApp, private fireImgService: FirebaseImageStorageProvider,
+    public fireService: FirebaseServiceProvider, private fireImgService: FirebaseImageStorageProvider,
     private camera: Camera) {
     this.product.name = this.navParams.get("productN");
     this.product.price = this.navParams.get("productP");
@@ -54,16 +53,12 @@ export class AddProductPage {
         // If it's base64:
         this.product.img = "data:image/jpeg;base64," + imageData;
         this.pictureTaken = true;
-        //this.savePicture();
         return this.fireImgService.uploadImage(this.product.img, this.fireService.getAuthUID());
       },
       err => {
         console.error(err);
       }
     );
-  }
-
-  savePicture() {
   }
 
   addProduct(product: Product) {

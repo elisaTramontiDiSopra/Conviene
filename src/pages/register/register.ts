@@ -24,6 +24,15 @@ export class RegisterPage {
     this.fireService.registerUser(user);
   }
 
+  focusFunction(){
+    if (this.user.email.length > 0) {
+      this.user.email = this.user.email.toLowerCase();
+    }
+    if (this.user.password.length > 0) {
+      this.user.password = this.user.password.toLowerCase();
+    }
+  }
+
 
 
 }
