@@ -1,4 +1,3 @@
-import { CameraMock } from './camera.mock';
 import { AngularFireDatabaseModule } from 'angularfire2/database/database.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -17,6 +16,8 @@ import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/databa
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 import { FIREBASE_CONFIG } from './firebase.credentials';
+import { FirebaseImageStorageProvider } from '../providers/firebase-image-storage/firebase-image-storage';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false,
+      autoFocusAssist: false
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -42,7 +46,8 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     SplashScreen,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseServiceProvider
+    FirebaseServiceProvider,
+    FirebaseImageStorageProvider
   ]
 })
 export class AppModule {}

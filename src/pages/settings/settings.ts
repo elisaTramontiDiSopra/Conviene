@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FirebaseServiceProvider } from "../../providers/firebase-service/firebase-service";
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider,) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
+  }
+
+  logout(){
+      this.fireService.signOut();
+      this.navCtrl.setRoot('LoginPage');
   }
 
 }

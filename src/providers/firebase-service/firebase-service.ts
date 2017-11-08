@@ -10,15 +10,16 @@ import { User } from "../../classes/user/user.class";
 
 @Injectable()
 export class FirebaseServiceProvider {
+
   product = {} as Product;
   dbReference = this.db.list("products");
+  authState: any = null;
 
-  constructor(
-    public http: Http,
-    public db: AngularFireDatabase,
-    public afAuth: AngularFireAuth
-  ) {
+  constructor(public http: Http, public db: AngularFireDatabase, public afAuth: AngularFireAuth  ) {
     console.log("Hello FirebaseServiceProvider Provider");
+    this.afAuth.authState.subscribe((auth) => {
+      this.authState = auth
+    });
   }
 
   //AUTH
@@ -44,6 +45,14 @@ export class FirebaseServiceProvider {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut();
+  }
+
+  getAuthUID(){
+    return this.authState.uid;
   }
 
   getList() {

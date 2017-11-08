@@ -1,23 +1,18 @@
 <ion-content padding>
-  <h3>Login</h3>
+  <div class="spacer"></div>
+  <img src="assets/imgs/logo.png" class="logo">
+  <div class="spacer"></div>
   <ion-item>
     <ion-label floating>Email</ion-label>
     <ion-input [(ngModel)]="user.email" type="email"></ion-input>
   </ion-item>
 
-  <ion-item *ngIf="this.seePassword">
+  <ion-item>
     <ion-label floating>Password</ion-label>
     <ion-input [(ngModel)]="user.password" type="text"></ion-input>
   </ion-item>
 
-  <ion-item *ngIf="!this.seePassword">
-    <ion-label floating>Password</ion-label>
-    <ion-input [(ngModel)]="user.password" type="password"></ion-input>
-  </ion-item>
-
-  <ion-row>
-    <div class="button oneThird" ion-button (tap)="login(user)">Login</div>
-    <div class="secondaryButton oneThird" ion-button (tap)="register()">Register</div>
-  </ion-row>
+  <button full ion-button class="whiteButton" (tap)="login(user)" [disabled]="!user.email || !user.password">Login</button>
+  <button full ion-button class="secondaryButton" (tap)="register()">Registrati</button>
 
 </ion-content>
