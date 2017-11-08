@@ -29,8 +29,20 @@
     </ion-col>
   </ion-row>
 
-  <div class="productName">
-    <p>{{product?.name}}</p>
-  </div>
+  <ion-footer>
+
+      <button ion-fab color="secondary" (tap)="goToPage('HomePage')">
+        <ion-icon name="home"></ion-icon>
+      </button>
+
+      <button ion-fab color="secondary" (tap)="goToPage('CameraPage')">
+        <ion-icon name="paper"></ion-icon>
+      </button>
+
+      <button ion-fab color="secondary" (tap)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+
+  </ion-footer>
 
 </ion-content>

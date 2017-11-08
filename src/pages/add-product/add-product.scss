@@ -1,5 +1,40 @@
 page-add-product {
+  line-height: 0px;
 
+  .productImage{
+    width: 100vw;
+    //height: 40vh;
+    position: absolute;
+    top:0;
+    z-index: -1;
+  }
+
+  .productImageContainer{
+    height: 35vh;
+    overflow: hidden;
+    @extend .flex
+  }
+
+  .overflowImg {
+    height: 35vh;
+    @extend .overflowHidden
+  }
+
+  .white{
+    margin: 0;
+    background-color: white;
+    h3 {
+      margin: 0;
+      padding: 3vh;
+    }
+  }
+
+
+  .curve{
+    //margin-top: 2vh;
+    width: 100vw;
+    z-index: 1;
+  }
 
   input{
     width: 90vw;

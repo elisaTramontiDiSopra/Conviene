@@ -19,4 +19,15 @@ export class ProductPage {
     console.log('ionViewDidLoad ProductPage');
   }
 
+
+  goToPage(page){
+    this.navCtrl.push(page);
+    console.log(page);
+  }
+
+  goBack(){
+    this.navCtrl.pop();
+  }
+
+
 }

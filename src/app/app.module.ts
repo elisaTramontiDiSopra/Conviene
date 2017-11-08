@@ -1,3 +1,4 @@
+import { CameraMock } from './camera.mock';
 import { AngularFireDatabaseModule } from 'angularfire2/database/database.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { CommonModule } from '@angular/common';
+import { Camera } from '@ionic-native/camera'
 
 import { MyApp } from './app.component';
 
@@ -38,6 +40,7 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     StatusBar,
     AngularFireDatabase,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseServiceProvider
   ]

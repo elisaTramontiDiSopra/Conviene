@@ -40,6 +40,24 @@ page-conviene {
     }
   }
 
+  .conviene {
+    background-color: rgba(255, 202, 80, 0.95);
+    opacity: 80%;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 30vh 10vw;
+    color: map-get($colors, secondary);
+    text-align: center;
+    font-size: 3vh;
+    p:first-child {
+      margin: 0;
+    }
+  }
+
   .circle{
     background-color: white;
     color: map-get($colors, secondary);

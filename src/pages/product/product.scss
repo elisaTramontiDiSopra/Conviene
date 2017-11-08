@@ -86,4 +86,15 @@ page-product {
       text-transform: uppercase;
     }
   }
+
+  ion-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    //background-color: map-get($colors, primary);
+    button{
+      margin: 3vw;
+    }
+  }
 }

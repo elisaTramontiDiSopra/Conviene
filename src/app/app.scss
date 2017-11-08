@@ -3,6 +3,17 @@ html, body, h1, h2, h3, h4, h5, h6 {
   //font-family: "Lato";
 }
 
+/****************************************** FLEX CLASSES */
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overflowHidden{
+  overflow: hidden;
+}
+
+
 .spacer {
   height: 5vh;
 }
@@ -105,7 +116,7 @@ color: white;
 .secondaryButton {
 @extend .button;
 background-color: map-get($colors, secondary) !important;
-color: white;
+color: white !important;
 }
 
 .thirdButton {
