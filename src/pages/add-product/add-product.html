@@ -12,9 +12,9 @@
     <button ion-fab color="light" (tap)="takePicture()">
       <ion-icon name="camera" class="cameraIcon"></ion-icon>
     </button>
-    <button ion-fab color="primary" (tap)="savePicture()">
+    <!--<button ion-fab color="primary" (tap)="savePicture()">
       <ion-icon name="checkmark" class="cameraIcon"></ion-icon>
-    </button>
+    </button> -->
   </div>
 
   <img src="assets/imgs/curvaGialla.png" class="curve">
@@ -78,15 +78,15 @@
 
     <div class="spacer"></div>
 
-    <div *ngIf="savedProduct" class="savedProductAlert">
+    <div *ngIf="savedProduct" class="completeFormAlert">
       <p>Il prodotto è stato correttamente salvato</p>
       <div class="spacer"></div>
-      <div class="button" (tap)="dismissAlert()">chiudi</div>
+      <div class="secondaryButton full" (tap)="dismissAlert()">chiudi</div>
     </div>
-    <div *ngIf="completeForm" class="completeFormAlert">
+    <div *ngIf="completeForm" class="savedProductAlert">
       <p>Completa il form inserendo nome e prezzo del prosotto</p>
       <div class="spacer"></div>
-      <div class="secondaryButton" (tap)="dismissCompleteFormAlert()">chiudi</div>
+      <div class="button" (tap)="dismissCompleteFormAlert()">chiudi</div>
     </div>
   </div>
 </ion-content>

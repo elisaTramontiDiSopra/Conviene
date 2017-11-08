@@ -62,7 +62,7 @@ export class AddProductPage {
   }
 
   addProduct(product: Product) {
-    if (product.price && product.name) {
+    if (product.price > 0 && product.name.length > 0) {
       this.fireService.addProduct(product);
       this.savedProduct = true;
     } else {

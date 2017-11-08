@@ -17,10 +17,10 @@
           <br />prodotti</p>
       </ion-col>
       <ion-col col-4>
-        <button ion-fab color="secondary" (tap)="goToPage('SettingsPage')">
-          <ion-icon name="settings"></ion-icon>
+        <button ion-fab color="secondary" (tap)="this.fireService.logOut()">
+          <ion-icon name="log-out"></ion-icon>
         </button>
-        <p>Impostazioni
+        <p>Logout
           <br /> </p>
       </ion-col>
     </ion-row>

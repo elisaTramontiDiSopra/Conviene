@@ -17,7 +17,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { FirebaseImageStorageProvider } from '../providers/firebase-image-storage/firebase-image-storage';
-import { MyShopDbProvider } from '../providers/my-shop-db/my-shop-db';
 
 
 @NgModule({
@@ -48,8 +47,7 @@ import { MyShopDbProvider } from '../providers/my-shop-db/my-shop-db';
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseServiceProvider,
-    FirebaseImageStorageProvider,
-    MyShopDbProvider
+    FirebaseImageStorageProvider
   ]
 })
 export class AppModule {}

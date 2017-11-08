@@ -36,7 +36,11 @@ export class ConvienePage {
         if (result.length === 0 ) {
           this.noResult = true;
         }
-        result.map(res => (this.savedPrice = +res["price"]));
+        result.map(res => {
+           this.product = res;
+           this.savedPrice = +res["price"]
+         });
+          //(this.savedPrice = +res["price"])  );
         if (this.savedPrice > price) {
           console.log("conviene");
           this.convieneBool = true;
@@ -49,17 +53,9 @@ export class ConvienePage {
     }
   }
 
-  checkPrice(savedPrice, controlPrice) {
-    if (!savedPrice) {
-      console.log("il prodotto non esiste");
-    } else if (savedPrice < controlPrice) {
-      console.log("non conviene");
-    } else {
-      console.log("conviene!!!!");
-    }
+  updateProduct(key, price) {
+    this.fireService.updateProduct(key, price)
   }
-
-  updateSalePrice() {}
 
   dismissAlert() {
     this.completeForm = false;

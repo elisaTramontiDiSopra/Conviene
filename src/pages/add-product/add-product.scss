@@ -1,5 +1,8 @@
 page-add-product {
   line-height: 0px;
+  ion-item{
+    width: 95vw;
+  }
 
   .productImage{
     width: 100vw;
@@ -55,27 +58,18 @@ page-add-product {
     margin: 0,
 
   }
-/*
-  .text-input::-moz-input-placeholder {
-    color: map-get($colors, secondary);
-    font-weight: bold;
-  }
 
-  .text-input:-ms-input-placeholder {
-    color: map-get($colors, secondary);;
-  }
-*/
   .text-input::-webkit-input-placeholder {
     text-indent: 0;
     color: map-get($colors, secondary);
     font-weight: bold;
   }
 
-
-  //background-color: map-get($colors, primary);
   .item {
     background-color: transparent;
     color: map-get($colors, secondary);
+    width: auto;
+    padding-right: 5vw;
   }
   .label {
     color: map-get($colors, secondary) !important;
@@ -85,29 +79,37 @@ page-add-product {
     color: map-get($colors, secondary) !important;
   }
 
-  .savedProductAlert {
-    background-color: rgba(35, 43, 52, 0.85);
-    opacity: 80%;
+  .alert{
     width: 100vw;
-    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 99;
     padding: 30vh 10vw;
-    color: white;
     text-align: center;
     font-size: 3vh;
-    p:first-child {
-      margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    p {
+      line-height: normal !important;
     }
+
+  }
+
+  .savedProductAlert {
+    background-color: rgba(35, 43, 52, 0.85);
+    color: white;
+    @extend .alert
   }
 
   .completeFormAlert {
     background-color: rgba(255,202,80, 0.85);
-    opacity: 80%;
     width: 100vw;
-    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;

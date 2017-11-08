@@ -22,16 +22,17 @@
     </div>
     <p>E' un'ottima offerta</p>
     <div class="spacer"></div>
-    <div class="button" (tap)="updateSalePrice()">Aggiorna il prezzo offerta</div>
-    <div class="secondaryButton" (tap)="goToPage('HomePage')">Home</div>
+    <button full ion-button class="button" (tap)="this.fireService.updateProduct(product.key, product.price)">Aggiorna il prezzo offerta</button>
+    <button full ion-button class="secondaryButton" (tap)="goToPage('HomePage')">Home</button>
   </div>
+
   <div *ngIf="convieneBool == false" class="nonConviene">
     <div class="circle">
       <ion-icon name="basket"></ion-icon>
     </div>
     <p>Il prezzo è più alto del normale</p>
     <div class="spacer"></div>
-    <div class="button" (tap)="goToPage('HomePage')">Home</div>
+    <button full ion-button class="whiteButton" class="button" (tap)="goToPage('HomePage')">Home</button>
   </div>
 
   <div *ngIf="completeForm" class="conviene">
@@ -39,10 +40,11 @@
     <div class="spacer"></div>
     <div class="secondaryButton" (tap)="dismissAlert()">chiudi</div>
   </div>
+
   <div *ngIf="noResult" class="nonConviene">
-      <p>Questo prodotto non è presente nel database</p>
-      <div class="spacer"></div>
-      <div class="button" navPush="AddProductPage" [navParams]="{productN: product.name, productP: product.price}" >Aggiungi prodotto</div>
-      <div class="secondaryButton" (tap)="dismissAlert()">chiudi</div>
-    </div>
+    <p>Questo prodotto non è presente nel database</p>
+    <div class="spacer"></div>
+    <button full ion-button class="button" navPush="AddProductPage" [navParams]="{productN: product.name, productP: product.price}" >Aggiungi prodotto</button>
+    <button full ion-button class="secondaryButton" (tap)="dismissAlert()">chiudi</button>
+  </div>
 </ion-content>

@@ -17,7 +17,7 @@ export class SettingsPage {
   }
 
   logout(){
-      this.fireService.signOut();
+      this.fireService.logOut();
       this.navCtrl.setRoot('LoginPage');
   }
 

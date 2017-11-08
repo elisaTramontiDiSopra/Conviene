@@ -52,7 +52,7 @@ export class FirebaseServiceProvider {
     }
   }
 
-  signOut() {
+  logOut() {
     this.afAuth.auth.signOut();
   }
 
@@ -96,5 +96,11 @@ export class FirebaseServiceProvider {
   addProduct(product: Product) {
     //console.log("product added");
     return this.dbReference.push(product);
+  }
+
+  updateProduct(key, priceSale) {
+    this.dbReference.update(key, {
+      priceSale: priceSale
+    });
   }
 }
