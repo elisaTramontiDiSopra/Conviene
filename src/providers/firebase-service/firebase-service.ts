@@ -42,6 +42,7 @@ export class FirebaseServiceProvider {
         user.password
       );
       console.log(result);
+      return result;
     } catch (e) {
       console.error(e);
     }

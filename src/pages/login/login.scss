@@ -9,10 +9,12 @@ page-login {
   .logo{
     width: 50vw;
     margin: auto;
+    margin-top: 5vh;
   }
   ion-item{
     background-color: transparent !important;
     color: map-get($colors, secondary) !important;
+    border-bottom: solid 1px white !important;
   }
 
   ion-label {
