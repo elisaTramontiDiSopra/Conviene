@@ -5,6 +5,7 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { User } from '../../classes/user/user.class';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -36,8 +37,10 @@ export class HomePage {
     console.log(page);
   }
 
-  conviene(){
-
+  logOut(){
+    this.fireService.logOut().then(() => {
+      this.navCtrl.setRoot('LoginPage')
+    });
   }
 
   makePasswordVisible(){

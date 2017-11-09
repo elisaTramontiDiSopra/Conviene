@@ -13,7 +13,7 @@ import { MyApp } from './app.component';
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { FirebaseImageStorageProvider } from '../providers/firebase-image-storage/firebase-image-storage';

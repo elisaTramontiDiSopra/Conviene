@@ -53,7 +53,7 @@ export class FirebaseServiceProvider {
   }
 
   logOut() {
-    this.afAuth.auth.signOut();
+    return this.afAuth.auth.signOut();
   }
 
   getAuthUID(){
