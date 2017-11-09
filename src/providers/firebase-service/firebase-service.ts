@@ -21,8 +21,13 @@ export class FirebaseServiceProvider {
   constructor(public http: Http, public db: AngularFireDatabase, public afAuth: AngularFireAuth  ) {
     console.log("Hello FirebaseServiceProvider Provider");
     this.afAuth.authState.subscribe((auth) => {
-      this.authState = auth;
-      this.dbReference = this.db.list(auth.uid);
+      //se non c'è utente perchè nessuno è loggato
+      if (auth == null) {
+        console.log('nessuno è loggato');
+      } else {
+        this.authState = auth;
+        this.dbReference = this.db.list(auth.uid);
+      }
     });
   }
 

@@ -24,6 +24,7 @@ export class LoginPage {
     public fireService: FirebaseServiceProvider, public afAuth: AngularFireAuth,
     public toastCtrl: ToastController, public alertCtrl: AlertController, public storage: Storage) {
     this.afAuth.authState.subscribe(auth => {
+     // console.log("AUTH "+auth)
       if(auth) {
         this.navCtrl.setRoot('HomePage')}
     });
