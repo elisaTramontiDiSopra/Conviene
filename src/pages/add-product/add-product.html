@@ -27,7 +27,7 @@
 
 
     <ion-item>
-      <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
+      <ion-input (keyup)="focusFunction()" [(ngModel)]="product.name" placeholder="Nome"></ion-input>
     </ion-item>
 
     <ion-item>

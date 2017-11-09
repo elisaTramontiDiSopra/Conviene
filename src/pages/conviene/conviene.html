@@ -45,7 +45,7 @@
   <div *ngIf="noResult" class="nonConviene">
     <p>Questo prodotto non è presente nel database</p>
     <div class="spacer"></div>
-    <button full ion-button class="button" navPush="AddProductPage" [navParams]="{productN: product.name, productP: product.price}" >Aggiungi prodotto</button>
+    <button full ion-button class="button" navPush="AddProductPage" [navParams]="{productN: product.name, productP: checkPrice}" >Aggiungi prodotto</button>
     <button full ion-button class="secondaryButton" (tap)="dismissAlert()">chiudi</button>
   </div>
 </ion-content>

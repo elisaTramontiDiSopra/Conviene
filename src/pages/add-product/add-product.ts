@@ -1,10 +1,11 @@
 import { Storage } from "@ionic/storage";
-import { FirebaseServiceProvider } from "./../../providers/firebase-service/firebase-service";
 import { FirebaseImageStorageProvider } from '../../providers/firebase-image-storage/firebase-image-storage';
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { Camera, CameraOptions } from "@ionic-native/camera";
-//import { FirebaseApp } from "angularfire2";
+import { FirebaseApp } from "angularfire2";
+
+import { FirebaseServiceProvider } from "./../../providers/firebase-service/firebase-service";
 
 import { Product } from "../../classes/products/products.class";
 
@@ -78,4 +79,18 @@ export class AddProductPage {
   dismissCompleteFormAlert() {
     this.completeForm = false;
   }
+
+  focusFunction(){
+    if (this.product.name.length > 0) {
+      this.product.name = this.product.name.toLowerCase();
+    }
+    /*
+    if (this.product.store.length > 0) {
+      this.product.store = this.product.store.toLowerCase();
+    }
+    if (this.product.storeSale.length > 0) {
+      this.product.storeSale = this.product.storeSale.toLowerCase();
+    }*/
+  }
+
 }
