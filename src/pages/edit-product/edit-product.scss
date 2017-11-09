@@ -1,3 +1,112 @@
 page-edit-product {
+  line-height: 0px;
+  ion-item {
+    width: 95vw;
+  }
 
+  .productImage {
+    width: 100vw;
+    //height: 40vh;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
+  .productImageContainer {
+    height: 35vh;
+    overflow: hidden;
+    @extend .flex;
+  }
+
+  .overflowImg {
+    height: 35vh;
+    @extend .overflowHidden;
+  }
+
+  .white {
+    margin: 0;
+    background-color: white;
+    h3 {
+      margin: 0;
+      padding: 3vh;
+    }
+  }
+
+  .curve {
+    //margin-top: 2vh;
+    width: 100vw;
+    z-index: 1;
+  }
+
+  input {
+    width: 90vw;
+    margin: 5vw;
+    border: none;
+    border-bottom: solid 1px map-get($colors, secondary);
+  }
+  .inputTitle {
+    width: 100vw;
+    padding: 5vw;
+    background-color: map-get($colors, primary);
+    color: map-get($colors, secondary);
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    text-indent: 0;
+    color: map-get($colors, secondary);
+    font-weight: bold;
+  }
+
+  .item {
+    background-color: transparent;
+    color: map-get($colors, secondary);
+    width: auto;
+    padding-right: 5vw;
+  }
+  .label {
+    color: map-get($colors, secondary) !important;
+    font-weight: bold;
+  }
+  .item-input {
+    color: map-get($colors, secondary) !important;
+  }
+
+  .alert {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 30vh 10vw;
+    text-align: center;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    p {
+      line-height: normal !important;
+    }
+  }
+
+  .savedProductAlert {
+    background-color: rgba(35, 43, 52, 0.85);
+    color: white;
+    @extend .alert
+  }
+
+  .completeFormAlert {
+    background-color: rgba(255, 202, 80, 0.85);
+    width: 100vw;
+    @extend .alert
+  }
 }

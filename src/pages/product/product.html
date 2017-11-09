@@ -1,11 +1,10 @@
 <ion-content>
 
   <img *ngIf="product.img !== ''" [src]="product.img" class="productImage" />
-  <img src="assets/imgs/introBlu.jpg" class="productImage">
+  <img src="assets/imgs/squareBlu.jpg" class="product">
   <!-- <img *ngIf="product.img == '' || product == undefined" src="assets/imgs/introBlu.jpg" class="productImage">
  -->
   <img src="assets/imgs/curvaGialla.png" class="curve">
-
   <div class="white" color="light">
     <h3 class="title">{{product?.name}}</h3>
     <ion-row>
@@ -47,7 +46,7 @@
         <ion-icon name="home"></ion-icon>
       </button>
 
-      <button ion-fab color="secondary" (tap)="goToPage('CameraPage')">
+      <button ion-fab color="secondary" navPush="EditProductPage" [navParams]="{product: product}">
         <ion-icon name="paper"></ion-icon>
       </button>
 

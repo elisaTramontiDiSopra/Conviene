@@ -1,34 +1,90 @@
-<ion-header>
+<ion-content>
 
-  <ion-navbar>
-    <ion-title>editProduct</ion-title>
-  </ion-navbar>
+      <div *ngIf="product.img == ''" class="productImageContainer">
+        <img src="assets/imgs/squareBlu.jpg" class="productImage">
+        <button ion-fab color="primary" (tap)="takePicture()">
+          <ion-icon name="camera" class="cameraIcon"></ion-icon>
+        </button>
+      </div>
 
-</ion-header>
+      <div *ngIf="product.img !== ''" class="productImageContainer">
+        <img [src]="product.img" class="productImage" />
+        <button ion-fab color="light" (tap)="takePicture()">
+          <ion-icon name="camera" class="cameraIcon"></ion-icon>
+        </button>
+      </div>
+
+      <img src="assets/imgs/curvaGialla.png" class="curve">
+      <div class="white" color="light">
 
 
-<ion-content padding>
 
-  <ion-item>
-    <ion-label>Nome</ion-label>
-    <ion-input placeholder="Il tuo prodotto"></ion-input>
-  </ion-item>
+        <h3 class="title">Modifica
+          <br />il prodotto</h3>
 
-  <ion-item>
-    <ion-label>Nome</ion-label>
-    <ion-input placeholder="Il tuo prodotto"></ion-input>
-  </ion-item>
+          <p>{{product.img}}</p>
+        <ion-item>
+          <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Prezzo</ion-label>
-    <ion-input type="number" placeholder="1"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="product.store" placeholder="Negozio"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Prezzo offerta</ion-label>
-    <ion-input type="number" placeholder="10"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="product.price" type="number" placeholder="Prezzo"></ion-input>
+        </ion-item>
 
-  <button ion-button block clear>Aggiungi prodotto</button>
+        <ion-row>
+          <ion-col col-4>
+            <ion-item>
+              <ion-label>Unità</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-8>
+            <ion-list radio-group [(ngModel)]="product.unity">
+              <ion-item>
+                <ion-label>Al Kg</ion-label>
+                <ion-radio value="Al kg" checked></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Al litro</ion-label>
+                <ion-radio value="Al litro"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Per confezione</ion-label>
+                <ion-radio value="Per confezione"></ion-radio>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
 
-</ion-content>
+        <ion-item>
+          <ion-input [(ngModel)]="product.storeSale" placeholder="Negozio offerta"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)]="product.priceSale" type="number" placeholder="Prezzo offerta"></ion-input>
+        </ion-item>
+
+        <div class="spacer"></div>
+
+        <ion-row class="rowRoundButtons">
+          <div class="button full" ion-button (tap)="update(product)">Aggiorna prodotto</div>
+        </ion-row>
+
+
+        <div class="spacer"></div>
+
+        <div *ngIf="savedProduct" class="completeFormAlert">
+          <p>Il prodotto è stato correttamente salvato</p>
+          <div class="spacer"></div>
+          <div class="secondaryButton full" (tap)="dismissAlert()">chiudi</div>
+        </div>
+        <div *ngIf="completeForm" class="savedProductAlert">
+          <p>Completa il form inserendo nome e prezzo del prosotto</p>
+          <div class="spacer"></div>
+          <div class="button" (tap)="dismissCompleteFormAlert()">chiudi</div>
+        </div>
+      </div>
+    </ion-content>

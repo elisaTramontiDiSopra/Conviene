@@ -23,6 +23,13 @@ page-product {
       margin-top: -20vh;
     }
 
+    .product{
+      width: 100vw;
+      position: absolute;
+      top:0;
+      z-index: -1;
+    }
+
     .productImageContainer{
       height: 35vh;
       overflow: hidden;

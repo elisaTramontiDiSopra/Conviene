@@ -3,17 +3,17 @@
   <h3 class="title">Mi conviene?</h3>
 
   <ion-item>
-    <ion-input [(ngModel)]="product.name" placeholder="Nome"></ion-input>
+    <ion-input (keyup)="focusFunction()" [(ngModel)]="product.name" placeholder="Nome"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="product.price" type="number" placeholder="Prezzo"></ion-input>
+    <ion-input [(ngModel)]="checkPrice" type="number" placeholder="Prezzo"></ion-input>
   </ion-item>
 
   <div class="spacer"></div>
 
   <ion-row class="rowRoundButtons">
-    <div class="button full" ion-button (tap)="conviene(product.name, product.price);">Conviene?</div>
+    <div class="button full" ion-button (tap)="conviene(product.name, checkPrice);">Conviene?</div>
   </ion-row>
 
   <div *ngIf="convieneBool == true" class="conviene">
@@ -22,7 +22,7 @@
     </div>
     <p>E' un'ottima offerta</p>
     <div class="spacer"></div>
-    <button full ion-button class="button" (tap)="this.fireService.updateProduct(product.key, product.price)">Aggiorna il prezzo offerta</button>
+    <button full ion-button class="whiteButton" (tap)="updateProduct(product.$key, checkPrice)">Aggiorna il prezzo offerta</button>
     <button full ion-button class="secondaryButton" (tap)="goToPage('HomePage')">Home</button>
   </div>
 

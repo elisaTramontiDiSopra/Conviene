@@ -67,12 +67,12 @@ export class FirebaseServiceProvider {
   value;
 
   getProduct(name) {
-    return this.db.list("products", {
-      query: {
-        orderByChild: "name",
-        equalTo: name
-      }
-    });
+      return this.db.list(this.authState.uid, {
+        query: {
+          orderByChild: "name",
+          equalTo: name
+        }
+      });
   }
 
   searchInDb(name, property) {
@@ -95,12 +95,31 @@ export class FirebaseServiceProvider {
 
   addProduct(product: Product) {
     //console.log("product added");
+
     return this.dbReference.push(product);
   }
 
   updateProduct(key, priceSale) {
     this.dbReference.update(key, {
       priceSale: priceSale
+    });
+  }
+
+  addKeyCopy(key) {
+    this.dbReference.update(key, {
+      keyCopy: key
+    });
+  }
+
+  updateWholeProduct(product){
+    this.dbReference.update(product.$key, {
+      img: product.img,
+      name: product.name,
+      price: product.price,
+      store: product.store,
+      priceSale: product.priceSale,
+      storeSale: product.storeSale,
+      unity: product.unity
     });
   }
 }

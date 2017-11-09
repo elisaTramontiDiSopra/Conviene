@@ -17,6 +17,7 @@ export class ConvienePage {
   productQuery;
   completeForm = false;
   noResult = false;
+  checkPrice;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider) {
 
@@ -26,18 +27,19 @@ export class ConvienePage {
     console.log("ionViewDidLoad ConvienePage");
   }
 
-  conviene(name, price: number) {
+  conviene(name, price) {
     //check if the form is completed
     if (name == undefined || price == undefined) {
       this.completeForm = true;
     } else {
       this.fireService.getProduct(name).subscribe(result => {
         //if the object is empty == no results
-        if (result.length === 0 ) {
+        if (result.length == 0 ) {
           this.noResult = true;
         }
         result.map(res => {
            this.product = res;
+           console.log(res);
            this.savedPrice = +res["price"]
          });
           //(this.savedPrice = +res["price"])  );
@@ -55,6 +57,12 @@ export class ConvienePage {
 
   updateProduct(key, price) {
     this.fireService.updateProduct(key, price)
+  }
+
+  focusFunction(){
+    if (this.product.name.length > 0) {
+      this.product.name = this.product.name.toLowerCase();
+    }
   }
 
   dismissAlert() {

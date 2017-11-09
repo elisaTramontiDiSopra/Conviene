@@ -110,17 +110,7 @@ page-add-product {
   .completeFormAlert {
     background-color: rgba(255,202,80, 0.85);
     width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    padding: 30vh 10vw;
-    color: map-get($colors, secondary);
-    text-align: center;
-    font-size: 3vh;
-    p:first-child {
-      margin: 0;
-    }
+    @extend .alert
   }
 
 
