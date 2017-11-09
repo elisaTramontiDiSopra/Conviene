@@ -23,6 +23,7 @@
     <p>E' un'ottima offerta</p>
     <div class="spacer"></div>
     <button full ion-button class="whiteButton" (tap)="updateProduct(product.$key, checkPrice)">Aggiorna il prezzo offerta</button>
+    <button full ion-button class="whiteButton" navPush="ProductPage" [navParams]="{product: product}">Scheda prodotto</button>
     <button full ion-button class="secondaryButton" (tap)="goToPage('HomePage')">Home</button>
   </div>
 
