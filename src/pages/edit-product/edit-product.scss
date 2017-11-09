@@ -1,26 +1,48 @@
 page-edit-product {
-  line-height: 0px;
+
   ion-item {
     width: 95vw;
   }
+/*
+  ion-col {
+    margin: 0;
+    padding: 0;
+  }
+  col-6{
+    padding: 0;
+  }
+  ion-list{
+    display: flex;
+    flex-direction: row;
+  }*/
+
+  line-height: 0px;
+
 
   .productImage {
     width: 100vw;
-    //height: 40vh;
     position: absolute;
     top: 0;
+    z-index: -1;
+    margin-top: -20vh;
+  }
+
+  .product{
+    width: 100vw;
+    position: absolute;
+    top:0;
     z-index: -1;
   }
 
   .productImageContainer {
     height: 35vh;
     overflow: hidden;
-    @extend .flex;
+    @extend .flex
   }
 
   .overflowImg {
     height: 35vh;
-    @extend .overflowHidden;
+    @extend .overflowHidden
   }
 
   .white {
@@ -38,12 +60,13 @@ page-edit-product {
     z-index: 1;
   }
 
-  input {
+  /*input {
     width: 90vw;
     margin: 5vw;
     border: none;
     border-bottom: solid 1px map-get($colors, secondary);
-  }
+  }*/
+
   .inputTitle {
     width: 100vw;
     padding: 5vw;
@@ -109,4 +132,5 @@ page-edit-product {
     width: 100vw;
     @extend .alert
   }
+
 }

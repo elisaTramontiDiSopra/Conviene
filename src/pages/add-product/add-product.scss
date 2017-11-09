@@ -6,7 +6,6 @@ page-add-product {
 
   .productImage{
     width: 100vw;
-    //height: 40vh;
     position: absolute;
     top:0;
     z-index: -1;
@@ -38,13 +37,14 @@ page-add-product {
     width: 100vw;
     z-index: 1;
   }
-
+/*
   input{
     width: 90vw;
     margin: 5vw;
     border: none;
     border-bottom: solid 1px map-get($colors, secondary);
-  }
+  }*/
+
   .inputTitle{
     width: 100vw;
     padding: 5vw;
@@ -56,7 +56,6 @@ page-add-product {
     display:flex;
     align-items: center;
     margin: 0,
-
   }
 
   .text-input::-webkit-input-placeholder {
@@ -98,7 +97,6 @@ page-add-product {
     p {
       line-height: normal !important;
     }
-
   }
 
   .savedProductAlert {
@@ -112,6 +110,5 @@ page-add-product {
     width: 100vw;
     @extend .alert
   }
-
 
 }

@@ -17,6 +17,7 @@ export class ProductPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');
+    console.log(this.product.img);
   }
 
 

@@ -1,7 +1,7 @@
 import { Storage } from "@ionic/storage";
 import { FirebaseImageStorageProvider } from '../../providers/firebase-image-storage/firebase-image-storage';
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams, ToastController } from "ionic-angular";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { FirebaseApp } from "angularfire2";
 
@@ -38,7 +38,7 @@ export class AddProductPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public fireService: FirebaseServiceProvider, private fireImgService: FirebaseImageStorageProvider,
-    private camera: Camera) {
+    public toastCtrl: ToastController, private camera: Camera) {
     this.product.name = this.navParams.get("productN");
     this.product.price = this.navParams.get("productP");
   }
@@ -64,10 +64,21 @@ export class AddProductPage {
 
   addProduct(product: Product) {
     if (product.price > 0 && product.name.length > 0) {
+      /*let toast = this.toastCtrl.create({
+        message: "prezzo e nome inseriti",
+        duration: 5000,
+        position: 'middle'
+      });
+      toast.present();*/
       this.fireService.addProduct(product)
       this.savedProduct = true;
-    } else {
-      this.completeForm = true;
+    } else {/*
+      let toast = this.toastCtrl.create({
+        message: "prezzo e nome NON INSERITI",
+        duration: 5000,
+        position: 'middle'
+      });
+      this.completeForm = true;*/
     }
   }
 
@@ -84,13 +95,6 @@ export class AddProductPage {
     if (this.product.name.length > 0) {
       this.product.name = this.product.name.toLowerCase();
     }
-    /*
-    if (this.product.store.length > 0) {
-      this.product.store = this.product.store.toLowerCase();
-    }
-    if (this.product.storeSale.length > 0) {
-      this.product.storeSale = this.product.storeSale.toLowerCase();
-    }*/
   }
 
 }

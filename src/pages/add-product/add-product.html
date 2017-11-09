@@ -12,9 +12,6 @@
     <button ion-fab color="light" (tap)="takePicture()">
       <ion-icon name="camera" class="cameraIcon"></ion-icon>
     </button>
-    <!--<button ion-fab color="primary" (tap)="savePicture()">
-      <ion-icon name="checkmark" class="cameraIcon"></ion-icon>
-    </button> -->
   </div>
 
   <img src="assets/imgs/curvaGialla.png" class="curve">
@@ -24,7 +21,6 @@
 
     <h3 class="title">Aggiungi
       <br />un prodotto</h3>
-
 
     <ion-item>
       <ion-input (keyup)="focusFunction()" [(ngModel)]="product.name" placeholder="Nome"></ion-input>

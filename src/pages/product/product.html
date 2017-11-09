@@ -1,8 +1,18 @@
 <ion-content>
 
+  <!-- <div *ngIf="product.img == ''" class="productImageContainer">
+    <img src="assets/imgs/squareBlu.jpg" class="productImage">
+  </div>
+
+  <div *ngIf="product.img !== ''" class="productImageContainer">
+    <img [src]="product.img" class="productImage" />
+  </div> -->
+
   <img *ngIf="product.img !== ''" [src]="product.img" class="productImage" />
-  <img src="assets/imgs/squareBlu.jpg" class="product">
-  <!-- <img *ngIf="product.img == '' || product == undefined" src="assets/imgs/introBlu.jpg" class="productImage">
+  <img *ngIf="product.img == ''" src="assets/imgs/squareBlu.jpg" class="product">
+
+<!-- <img *ngIf="product.img == '' || product == undefined" src="assets/imgs/introBlu
+    .jpg" class="productImage">
  -->
   <img src="assets/imgs/curvaGialla.png" class="curve">
   <div class="white" color="light">
