@@ -28,13 +28,13 @@ export class ConvienePage {
   }
 
   conviene(name, price) {
-    //check if the form is completed
+    // check if the form is completed and if it's not visualize alert
     if (name == undefined || price == undefined) {
       this.completeForm = true;
     } else {
       this.fireService.getProduct(name).subscribe(result => {
-        //if the object is empty == no results
-        if (result.length == 0 ) {
+        //if the object is empty == no results visualize the alert
+        if (result.length === 0 ) {
           this.noResult = true;
         }
         result.map(res => {

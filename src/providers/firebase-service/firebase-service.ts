@@ -127,4 +127,17 @@ export class FirebaseServiceProvider {
       unity: product.unity
     });
   }
+
+  filterItems(searchTerm, list) {
+    // per ogni elemento dell'array filter chiama la funzione tra ()
+    // e mantiene nell'arrey filtrato solo gli elementi che restituiscono true
+
+    // indexOf cerca searchTerm e mi da -1 se non trova corrispondenze
+    // e un numero >=0 se trova corrispondenze (mi da l'indice)
+    // mettendo >-1 restituisco un valore true o false
+    return list.filter((matchWithSearch) => {
+      return matchWithSearch.indexOf(searchTerm.toLowerCase()) > -1
+    })
+  }
+
 }
