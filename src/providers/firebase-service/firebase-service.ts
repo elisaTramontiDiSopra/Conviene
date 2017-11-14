@@ -1,3 +1,4 @@
+import { ToastController } from 'ionic-angular';
 import { AngularFireAuth, AngularFireAuthModule } from "angularfire2/auth";
 import { FirebaseListObservable } from "angularfire2/database";
 import { AngularFireDatabase } from "angularfire2/database";
@@ -10,7 +11,6 @@ import { User } from "../../classes/user/user.class";
 
 @Injectable()
 export class FirebaseServiceProvider {
-
   product = {} as Product;
   uid;
   dbReference;
@@ -18,12 +18,17 @@ export class FirebaseServiceProvider {
   //dbReference = this.db.list("products");
   authState: any = null;
 
-  constructor(public http: Http, public db: AngularFireDatabase, public afAuth: AngularFireAuth  ) {
+  constructor(
+    public http: Http,
+    public db: AngularFireDatabase,
+    public afAuth: AngularFireAuth,
+    public toastCtrl: ToastController
+  ) {
     console.log("Hello FirebaseServiceProvider Provider");
-    this.afAuth.authState.subscribe((auth) => {
+    this.afAuth.authState.subscribe(auth => {
       //se non c'è utente perchè nessuno è loggato
       if (auth == null) {
-        console.log('nessuno è loggato');
+        console.log("nessuno è loggato");
       } else {
         this.authState = auth;
         this.dbReference = this.db.list(auth.uid);
@@ -33,20 +38,48 @@ export class FirebaseServiceProvider {
 
   //AUTH
   async registerUser(user: User) {
+    var message;
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(
         user.email,
         user.password
-       );
+      ).then(() => {
+        message = this.sendEmailVerification();
+      });
       console.log(result);
-      return "OK";
+      return message;
     } catch (e) {
       console.error(e);
       return e;
     }
-
   }
-/*
+
+  async sendEmailVerification() {
+    var user = await this.afAuth.auth.currentUser;
+    //var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+        // Email sent.
+        console.log('Email di verifica spedita');
+        return "OK";
+        /*let toast = this.toastCtrl.create({
+          message: "Controlla la tua casella mail e clicca sul link per completare la registrazione",
+          duration: 5000,
+          position: 'middle'
+        });
+        toast.present();*/
+      })
+      .catch(function(error) {
+        // An error happened.
+        let toast = this.toastCtrl.create({
+          message: error,
+          duration: 5000,
+          position: 'middle'
+        });
+        toast.present();
+      });
+  }
+
+  /*
   sendEmailVerification(){
       this.afAuth.authState.subscribe(user => {
           user.sendEmailVerification()
@@ -56,8 +89,6 @@ export class FirebaseServiceProvider {
         });
     }
   } */
-
-
 
   async loginUser(user: User) {
     try {
@@ -76,7 +107,7 @@ export class FirebaseServiceProvider {
     return this.afAuth.auth.signOut();
   }
 
-  getAuthUID(){
+  getAuthUID() {
     return this.authState.uid;
   }
 
@@ -87,12 +118,12 @@ export class FirebaseServiceProvider {
   value;
 
   getProduct(name) {
-      return this.db.list(this.authState.uid, {
-        query: {
-          orderByChild: "name",
-          equalTo: name
-        }
-      });
+    return this.db.list(this.authState.uid, {
+      query: {
+        orderByChild: "name",
+        equalTo: name
+      }
+    });
   }
 
   searchInDb(name, property) {
@@ -131,7 +162,7 @@ export class FirebaseServiceProvider {
     });
   }
 
-  updateWholeProduct(product){
+  updateWholeProduct(product) {
     this.dbReference.update(product.$key, {
       img: product.img,
       name: product.name,
@@ -150,9 +181,8 @@ export class FirebaseServiceProvider {
     // indexOf cerca searchTerm e mi da -1 se non trova corrispondenze
     // e un numero >=0 se trova corrispondenze (mi da l'indice)
     // mettendo >-1 restituisco un valore true o false
-    return list.filter((matchWithSearch) => {
-      return matchWithSearch.indexOf(searchTerm.toLowerCase()) > -1
-    })
+    return list.filter(matchWithSearch => {
+      return matchWithSearch.indexOf(searchTerm.toLowerCase()) > -1;
+    });
   }
-
 }

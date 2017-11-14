@@ -11,6 +11,6 @@
       <ion-input (keyup)="focusFunction()" [(ngModel)]="user.password" type="text"></ion-input>
     </ion-item>
 
-    <button full ion-button class="whiteButton" (tap)="register(user)" [disabled]="!user.email || !user.password">Register</button>
+    <button full ion-button class="whiteButton marginTop" (tap)="register(user)" [disabled]="!user.email || !user.password">Register</button>
 
   </ion-content>

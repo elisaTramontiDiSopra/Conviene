@@ -1,20 +1,28 @@
 page-register {
-  background-image: url('../assets/imgs/bgBlu.jpg') !important;
+  background-image: url("../assets/imgs/bgBlu.jpg") !important;
   background-size: cover;
   background-position: center center;
   text-align: center;
-  .logo{
+
+  .logo {
     width: 50vw;
     margin: auto;
     margin-top: 5vh;
   }
-  ion-item{
+
+  ion-item {
     background-color: transparent !important;
     color: map-get($colors, primary) !important;
-    border-bottom: solid 1px white !important;
+    padding: 0 2vw !important;
+    //border-bottom: solid 1px white !important;
   }
 
   ion-label {
     color: map-get($colors, primary) !important;
-}
+  }
+
+  .marginTop {
+    margin-top: 10vh;
+  }
+
 }

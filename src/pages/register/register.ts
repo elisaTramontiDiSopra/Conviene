@@ -30,7 +30,14 @@ export class RegisterPage {
       // Could do something with the Auth-Response
       console.log(message);
       if (message === "OK") {
+        let toast = this.toastCtrl.create({
+          message: "Controlla la tua casella mail e clicca sul link per completare la registrazione",
+          duration: 5000,
+          position: 'middle'
+        });
+        toast.present().then(() => {
           this.navCtrl.setRoot("HomePage");
+        });
       } else {
         let toast = this.toastCtrl.create({
           message: message,
