@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,  NavParams,  ToastController} from 'ionic-angular';
 import { User } from '../../classes/user/user.class';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 
@@ -10,10 +10,15 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 })
 export class RegisterPage {
 
-  user = {} as User;
+  user = {
+    email: "",
+    password: ""
+  } as User;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fireService: FirebaseServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public fireService: FirebaseServiceProvider,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -21,7 +26,20 @@ export class RegisterPage {
   }
 
   register(user){
-    this.fireService.registerUser(user);
+    this.fireService.registerUser(user).then((message) => {
+      // Could do something with the Auth-Response
+      console.log(message);
+      if (message === "OK") {
+          this.navCtrl.setRoot("HomePage");
+      } else {
+        let toast = this.toastCtrl.create({
+          message: message,
+          duration: 5000,
+          position: 'middle'
+        });
+        toast.present();
+      }
+    });
   }
 
   focusFunction(){

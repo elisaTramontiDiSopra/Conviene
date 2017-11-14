@@ -37,12 +37,27 @@ export class FirebaseServiceProvider {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(
         user.email,
         user.password
-      );
+       );
       console.log(result);
+      return "OK";
     } catch (e) {
       console.error(e);
+      return e;
     }
+
   }
+/*
+  sendEmailVerification(){
+      this.afAuth.authState.subscribe(user => {
+          user.sendEmailVerification()
+          .then(() => {
+            console.log('email sent');
+          })
+        });
+    }
+  } */
+
+
 
   async loginUser(user: User) {
     try {

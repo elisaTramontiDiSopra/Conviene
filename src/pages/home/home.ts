@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { NavController, IonicPage } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
-import { User } from '../../classes/user/user.class';
-import { LoginPage } from '../login/login';
+//import { User } from '../../classes/user/user.class';
+//import { LoginPage } from '../login/login';
 
 @IonicPage()
-=======
-import { NavController } from 'ionic-angular';
-
->>>>>>> be7c0e370a93525d8eefafc8baffd44bb33e60bd
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
